@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:s6_base_202604_202610/main.dart';
+import 'package:s6_base_202604_202610/providers/theme_provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,7 +22,8 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.brightness_6),
             onPressed: () {
-              ThemeScope.of(context).onToggleTheme();
+              //ThemeScope.of(context).onToggleTheme();
+              context.read<ThemeProvider>().toggleTheme();
             },
           ),
         ],
