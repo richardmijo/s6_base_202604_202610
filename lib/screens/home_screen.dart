@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:s6_base_202604_202610/main.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,9 +13,17 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Inicio'),
-        backgroundColor: colorScheme.primaryContainer,
+        backgroundColor: Colors.amber,
         foregroundColor: colorScheme.onPrimaryContainer,
         elevation: 1,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.brightness_6),
+            onPressed: () {
+              ThemeScope.of(context).onToggleTheme();
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Padding(
@@ -40,9 +49,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () => context.push('/settings'),
                 icon: const Icon(Icons.settings),
                 label: const Text('Ir a Ajustes'),
-                style: FilledButton.styleFrom(
-                  minimumSize: const Size(220, 50),
-                ),
+                style: FilledButton.styleFrom(minimumSize: const Size(220, 50)),
               ),
               const SizedBox(height: 16),
               OutlinedButton.icon(
